@@ -51,6 +51,12 @@ button {
     font-weight: bold;
 }
 
+.todo{
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+}
+
 button:hover {
     background: #1e40af;
 }

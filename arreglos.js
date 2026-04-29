@@ -4,13 +4,21 @@ let EdadIzquierdo = [];
 function agregarEdad(){
    let edad = parseInt(document.getElementById("edad").value);
    if(!isNaN(edad)){
-        EdadIzquierdo.push(edad);
-        EdadDerecho.push(edad);
+   if(edad >= 1 && edad <= 18){
+    EdadIzquierdo.push(edad)
+   } else if(edad <= 100 && edad > 18){
+    EdadDerecho.push(edad);
+   }
    } else {
     alert("Por favor Ingrese un numero valido");
    }
+   document.getElementById("edad").value = ""
    pintarArregloIzquierda()
    pintarArregloDerecha()
+}
+
+function limpiar(){
+
 }
 
 function eliminarIzquierdo(indice){
@@ -65,6 +73,20 @@ function moverHaciaIzquierda(indice){
     let edad = EdadDerecho[indice];
     EdadIzquierdo.push(edad);
     EdadDerecho.splice(indice, 1);
+    pintarArregloIzquierda()
+    pintarArregloDerecha()
+}
+
+function moverTodoDerecha(indice){;
+    EdadDerecho.push(...EdadIzquierdo);
+    EdadIzquierdo = [];
+    pintarArregloIzquierda()
+    pintarArregloDerecha()
+}
+
+function moverTodoIzquierda(indice){
+    EdadIzquierdo.push(...EdadDerecho);
+    EdadDerecho = [];
     pintarArregloIzquierda()
     pintarArregloDerecha()
 }
