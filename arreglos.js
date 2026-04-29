@@ -5,15 +5,22 @@ function agregarEdad(){
    let edad = parseInt(document.getElementById("edad").value);
    if(!isNaN(edad)){
         EdadIzquierdo.push(edad);
+        EdadDerecho.push(edad);
    } else {
     alert("Por favor Ingrese un numero valido");
    }
    pintarArregloIzquierda()
+   pintarArregloDerecha()
 }
 
 function eliminarIzquierdo(indice){
     EdadIzquierdo.splice(indice, 1);
     pintarArregloIzquierda();
+}
+
+function eliminarDerecho(indice){
+    EdadDerecho.splice(indice, 1);
+    pintarArregloDerecha();
 }
 
 function pintarArregloIzquierda(){
@@ -39,8 +46,8 @@ function pintarArregloDerecha(){
     for(let i = 0; i < EdadDerecho.length; i++ ){
         EdadRecuperada = EdadDerecho[i];
         contenidoTabla+= "<tr>";
-        contenidoTabla+= "<button class='btn-mover'>⬅</button>";
-        contenidoTabla+= "<td>"+ EdadRecuperada + "</td> <td><button class='btn-eliminar' onclick='eliminarDerecho( "+i+" )'>Eliminar</button></td>";
+        contenidoTabla+= " <td><button class='btn-mover'>⬅</button></td> <td>"+ EdadRecuperada + "</td>";
+        contenidoTabla+= "<td><button class='btn-eliminar' onclick='eliminarDerecho( "+i+" )'>Eliminar</button></td>";
         contenidoTabla+= "</tr>";
     }
     tbody.innerHTML=contenidoTabla
