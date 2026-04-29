@@ -30,3 +30,18 @@ function pintarArregloIzquierda(){
     }
     tbody.innerHTML=contenidoTabla
 }
+
+function pintarArregloDerecha(){
+    let tbody= document.getElementById("tablaDerecha");
+    let contenidoTabla = "";
+    let EdadRecuperada;
+
+    for(let i = 0; i < EdadDerecho.length; i++ ){
+        EdadRecuperada = EdadDerecho[i];
+        contenidoTabla+= "<tr>";
+        contenidoTabla+= "<button class='btn-mover'>⬅</button>";
+        contenidoTabla+= "<td>"+ EdadRecuperada + "</td> <td><button class='btn-eliminar' onclick='eliminarDerecho( "+i+" )'>Eliminar</button></td>";
+        contenidoTabla+= "</tr>";
+    }
+    tbody.innerHTML=contenidoTabla
+}
